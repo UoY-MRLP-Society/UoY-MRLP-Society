@@ -72,12 +72,12 @@ nav {
 .gallery-section img {
     display: inline-block;
     margin: 10px auto;
+
 }
-/* Container for the form to keep it neat and narrow */
-.contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: middle; /* Centers the form on the page */
+/* This forces the headers and text above your form to center perfectly */
+.contact-form-heading {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Spaces out each input box block */
@@ -122,4 +122,48 @@ nav {
 .contact-form button:hover {
     background-color: purple ; /* Match your website color */
 }
+/* Remove standard dots from all lists */
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+/* Add custom icons before each list item */
+ul li::before {
+    content: "★ "; /* You can swap this with any emoji, like 🎩 or 🤪 */
+    color: #ffd700; 
+    font-weight: bold;
+    display: inline-block;
+    width: 1.5rem;
+}
+/* Center the links section */
+.social-media-links {
+    text-align: center;
+    margin: 30px auto 10px auto;
+}
+
+/* Base style for circles */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 12px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Instagram Hover color */
+.social-icon.instagram:hover { background-color: #e1306c; transform: scale(1.1); }
+
+/* Gmail Hover color (Google Red) */
+.social-icon.gmail:hover { background-color: #db4437; transform: scale(1.1); }
+
+/* University Page Hover color (A sharp purple or blue matching your site) */
+.social-icon.university:hover { background-color: #5a2d81; transform: scale(1.1); }
 
