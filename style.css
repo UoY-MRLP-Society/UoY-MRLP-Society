@@ -1,0 +1,125 @@
+/* Clean up page margins and set a modern font */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Style the top header bar */
+header {
+    background-color: #fff7ad;
+    color: purple;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Center and space out the main content area */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Style individual sections */
+section {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Style the footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    font-size: 0.9rem;
+}
+/* Style the navigation links bar */
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: Purple;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Style the navigation links bar and center it */
+nav {
+    margin-top: 15px;
+    text-align: center; /* This centers the links inside the header */
+}
+/* Center everything inside the gallery section */
+.gallery-section 
+{
+    text-align: center;
+}
+
+/* Make sure the image behaves properly when centered */
+.gallery-section img {
+    display: inline-block;
+    margin: 10px auto;
+}
+/* Container for the form to keep it neat and narrow */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: middle; /* Centers the form on the page */
+}
+
+/* Spaces out each input box block */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Style the text labels */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left; /* Aligns labels to the left for better readability */
+}
+
+/* Style the text boxes and comment area */
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Prevents text boxes from spilling out of the section */
+    font-family: Arial, sans-serif;
+}
+
+/* Style the send button */
+.contact-form button {
+    background-color: rgb(142, 69, 142); /* Match your website color */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%; /* Makes button big and easy to click */
+    transition: background 0.2s;
+}
+
+/* Changes button color when hovered over */
+.contact-form button:hover {
+    background-color: purple ; /* Match your website color */
+}
+
