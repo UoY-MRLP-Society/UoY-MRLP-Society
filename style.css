@@ -36,8 +36,8 @@ section {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #333;
-    color: white;
+    background-color:  #fff7ad;
+    color: purple;
     font-size: 0.9rem;
 }
 /* Style the navigation links bar */
@@ -159,11 +159,190 @@ ul li::before {
 }
 
 /* Instagram Hover color */
-.social-icon.instagram:hover { background-color: #e1306c; transform: scale(1.1); }
+.social-icon.instagram:hover { background-color: purple; transform: scale(1.1); }
 
 /* Gmail Hover color (Google Red) */
-.social-icon.gmail:hover { background-color: #db4437; transform: scale(1.1); }
+.social-icon.gmail:hover { background-color: purple; transform: scale(1.1); }
 
 /* University Page Hover color (A sharp purple or blue matching your site) */
-.social-icon.university:hover { background-color: #5a2d81; transform: scale(1.1); }
+.social-icon.university:hover { background-color: purple; transform: scale(1.1); }
 
+/* Full-screen overlay that hides the page while loading */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffd700; /* Matches your bright society yellow background */
+    z-index: 9999; /* Forces it to stay on top of absolutely everything */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Style and animate your custom logo icon */
+.spinning-logo {
+    width: 150px;
+    height: 150px;
+    animation: whimsicalSpin 2s linear infinite; /* Keeps it rolling smoothly */
+}
+
+/* Fun playful loading text */
+.loading-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* The actual spinning physics rule */
+@keyframes whimsicalSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class applied by JavaScript to smoothly fade out the loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffd700;
+    z-index: 9999;
+    display: none; /* CHANGED: Hide it by default to prevent the flicker */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+/* Style your custom badge images inside the circle links */
+.badge-image {
+    width: 70px;         /* Adjust this height and width to make your images bigger or smaller */
+    height: 70px;
+    object-fit: contain; /* Keeps the graphics perfectly sharp without stretching them */
+    margin-bottom: 10px; /* Leaves a neat gap between the image and the header text */
+}
+/* 1. Force the badge columns to sit side-by-side */
+.badge-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+/* 2. Style the vertical block (makes text sit underneath the image) */
+.badge-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px; /* Keeps the text paragraph neatly contained */
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. The circular frame layout that your yellow image will completely fill */
+.badge-image-wrapper {
+    background: #ffffff;
+    border: 3px dashed #333;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Clips the inner image to a clean circle layout */
+    box-shadow: 0 8px 0px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* 4. Forces your yellow graphic to fill the circular frame completely */
+.badge-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zooms/fills image into frame area seamlessly */
+}
+
+/* 5. Typography settings */
+.badge-card h3 {
+    margin: 5px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.badge-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: purple;
+    margin: 0;
+}
+
+/* 6. Whimsical Tilt animations applied to the entire block on hover */
+.green-badge:hover {
+    transform: scale(1.05) rotate(10deg);
+}
+
+.green-badge:hover .badge-image-wrapper {
+    background-color: #e8f5e9;
+    border-color: purple;
+}
+
+.purple-badge:hover {
+    transform: scale(1.05) rotate(10deg);
+}
+
+.purple-badge:hover .badge-image-wrapper {
+    background-color: #f3e5f5;
+    border-color: #6a1b9a;
+}
+/* Fix layout restriction on the main badge section */
+section.badges-showcase {
+    max-width: 800px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: block !important; /* Overrides early rigid vertical section templates */
+}
+
+/* Force layout grid columns to arrange horizontally side-by-side */
+.badge-grid {
+    display: flex !important;
+    flex-direction: row !important; /* Re-forces side-by-side structure */
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 50px !important; /* Creates clear horizontal space between cards */
+    flex-wrap: wrap !important; /* Ensures stability on smaller mobile viewports */
+    margin-top: 30px !important;
+}
+
+/* Specifically force the main heading and intro paragraph to center alignment */
+.badges-showcase h2,
+.badges-showcase p {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* This targets ONLY links and text blocks inside your badge-grid */
+.badge-grid a,
+.badge-grid h3,
+.badge-grid p,
+.badge-card {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

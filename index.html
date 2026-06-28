@@ -8,6 +8,12 @@
 </head>
 <body>
 
+    <!-- Whimsical Branded Loading Screen -->
+<div id="loader-wrapper">
+    <img src="Transparent_circle_logo.png" alt="Loading..." class="spinning-logo">
+    <p class="loading-text">Stay Loony...</p>
+</div>
+
     <header>
         <h1>University of York MRLP Society</h1>
  <p>Established 2025</p>
@@ -18,11 +24,12 @@
     <h2></h2>
     <img src="Transparent_circle_logo.png" alt="University of York MRLP Society Logo" style="max-width:100%; height:auto; border-radius:4px;">
 <nav>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a>|
-    <a href="sustainability.html">Sustainability</a>|
-    <a href="accessibility.html">Accessibility</a>|
-    <a href="contact.html">Contact Us</a>
+    <nav>
+
+    <a href="about.html">About Us</a> | 
+    <a href="badges.html">Badges</a> | 
+    <a href="contact.html">Contact Us</a>|
+    <a href="#" onclick="goToRandomPage(event)" style="color: purple;">Random</a> 
 </nav>
 
 
@@ -49,6 +56,53 @@
         <p>&copy; 2026 University of York MRLP Society. Created in the UK.</p>
 
     </footer>
+    
+<!-- Whimsical Random Page Script -->
+<script>
+function goToRandomPage(event) {
+    // Prevent the page from just jumping to the top of the screen
+    event.preventDefault();
+    
+    // A list of all your society pages
+    const pages = [
+        "index.html",
+        "about.html",
+        "badges.html",
+        "contact.html",
+        "sustainability.html",
+        "accessibility.html"
+    ];
+    
+    // Pick a random number based on the length of our list
+    const randomIndex = Math.floor(Math.random() * pages.length);
+    
+    // Send the user to that random page instantly!
+    window.location.href = pages[randomIndex];
+}
+</script>
+
+<script>
+(function() {
+    const loader = document.getElementById("loader-wrapper");
+    
+    // Check browser memory instantly before anything displays
+    if (!sessionStorage.getItem("hasVisitedBefore")) {
+        // First time visitor! Instantly unhide the loader box layout
+        loader.style.display = "flex";
+        
+        // Wait for the full page graphics to load up smoothly
+        window.addEventListener("load", function () {
+            setTimeout(function() {
+                loader.classList.add("loader-hidden");
+                // Mark them as a returning visitor
+                sessionStorage.setItem("hasVisitedBefore", "true");
+            }, 800);
+        });
+    }
+})();
+</script>
+
+
 
 </body>
 </html>
