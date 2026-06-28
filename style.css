@@ -346,3 +346,32 @@ section.badges-showcase {
     align-items: center !important;
     justify-content: center !important;
 }
+/* --- MOBILE RESPONSIVE LAYOUT STYLES --- */
+@media screen and (max-width: 600px) {
+    /* 1. Expand the white content container box to fit mobile screens fully */
+    section.badges-showcase {
+        max-width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Switch the side-by-side flex grid to a vertical stack structure */
+    .badge-grid {
+        flex-direction: column !important; /* Stacks badges vertically on mobiles */
+        align-items: center !important;
+        gap: 35px !important; /* Adds clear separation spacing between cards */
+    }
+
+    /* 3. Slightly scale down the dashed frames so they fit comfortably on phone panels */
+    .badge-image-wrapper {
+        width: 170px !important;
+        height: 170px !important;
+    }
+
+    /* 4. Keep your text items perfectly bounded and centered */
+    .badge-card {
+        width: 100% !important;
+        max-width: 220px !important;
+        margin: 0 auto !important;
+    }
+}
