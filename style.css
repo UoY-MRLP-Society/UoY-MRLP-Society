@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #eee7f4;
+    background-color: #f6e9ff;
     color: #333;
     line-height: 1.6;
 }
@@ -14,6 +14,28 @@ header {
     color: purple;
     text-align: center;
     padding: 2rem 1rem;
+}
+/* Turn the boring header into a chunky whimsical comic box */
+header {
+    background-color: #fff7ad !important;
+    padding: 20px !important;
+    max-width: 800px !important;
+    width: 90% !important;
+    margin: 30px auto !important;
+    
+    /* Quirky Design Touches */
+    border: 3px solid #333333 !important;      /* Thick, bold comic-book outline */
+    border-radius: 16px !important;            /* Fun, heavily rounded corners */
+    box-shadow: 8px 8px 0px #333333 !important; /* Chunky, solid retro pop-art shadow */
+}
+
+/* Style the page titles inside the header to stand out */
+header h1 {
+    font-family: 'Arial Black', Impact, sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    color: #333333 !important;
+    margin-bottom: 10px !important;
 }
 
 /* Center and space out the main content area */
@@ -374,4 +396,111 @@ section.badges-showcase {
         max-width: 220px !important;
         margin: 0 auto !important;
     }
+}
+/* 1. Attach the automatic rocking animation to your header banner */
+header {
+    /* Keeps all your existing shapes, thick borders, and hard shadows intact */
+    animation: whimsicalRock 6s ease-in-out infinite !important; /* Continuous infinite loops */
+}
+
+/* 2. Define the keyframe coordinates for the tilting timeline physics */
+@keyframes whimsicalRock {
+    0%, 100% {
+        transform: rotate(-2.5deg); /* Starts tilted slightly left */
+    }
+    50% {
+        transform: rotate(2.5deg);  /* Smoothly glides to tilt slightly right at halfway point */
+    }
+}
+/* Container for the carousel section */
+.carousel-section {
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* Base stack setting up the depth layer */
+.polaroid-stack {
+    position: relative;
+    width: 280px;
+    height: 360px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+/* Individual Polaroid frame style */
+.polaroid-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border: 2px solid #333333;
+    padding: 15px 15px 25px 15px;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    
+    /* Hide unactive frames directly beneath the top card */
+    opacity: 0;
+    transform: scale(0.9) rotate(0deg);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.3s ease;
+    pointer-events: none; /* Prevents background cards from stealing clicks */
+}
+
+/* The square frame area inside the polaroid */
+.photo-container {
+    width: 100%;
+    height: 220px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Handwritten style text captions at the bottom */
+.polaroid-caption {
+    margin-top: 15px;
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Adds a playful artsy vibe */
+    color: #333;
+}
+
+.polaroid-caption h3 {
+    font-size: 1.1rem;
+    margin: 0 0 4px 0;
+}
+
+.polaroid-caption p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #666;
+}
+
+/* --- THE STACK LAYER SYSTEM --- */
+
+/* The active top Polaroid card (Visibly tilted left) */
+.polaroid-card.active {
+    opacity: 1;
+    transform: scale(1) rotate(-3deg);
+    z-index: 3;
+    pointer-events: auto; /* Activates clicking on the top card */
+}
+
+/* The card tucked directly behind it (Slightly smaller, tilted right) */
+.polaroid-card.next-up {
+    opacity: 0.9;
+    transform: scale(0.95) rotate(4deg);
+    z-index: 2;
+}
+
+/* The card at the very bottom of the deck */
+.polaroid-card.last-in-deck {
+    opacity: 0.7;
+    transform: scale(0.9) rotate(-1deg);
+    z-index: 1;
 }

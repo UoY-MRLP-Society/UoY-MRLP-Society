@@ -26,7 +26,108 @@
             <p>This website is still currently in development. Features and content will be added over time.</p>
             <!-- Link to go back home -->
             <p><a href="index.html">Back to Home Page</a></p>
+
         </section>
+
+        <section class="carousel-section">
+    <h2>Meet the Committee</h2>
+    <p>Click any photo to skip to the next committee member!</p>
+    
+    <!-- The Polaroid Stack Container -->
+    <div class="polaroid-stack" onclick="cyclePolaroids()">
+        
+        <!-- Polaroid Card 1 -->
+        <div class="polaroid-card active">
+            <div class="photo-container">
+                <img src="Transparent_circle_logo.png" alt="Committee Role 1">
+            </div>
+            <div class="polaroid-caption">
+                <h3>President</h3>
+                <p>The Scapegoat</p>
+            </div>
+        </div>
+
+        <!-- Polaroid Card 2 -->
+        <div class="polaroid-card">
+            <div class="photo-container">
+                <img src="Transparent_circle_logo.png" alt="Committee Role 2">
+            </div>
+            <div class="polaroid-caption">
+                <h3>Secretary</h3>
+                <p>Boring Admin</p>
+            </div>
+        </div>
+
+        <!-- Polaroid Card 3 -->
+        <div class="polaroid-card">
+            <div class="photo-container">
+                <img src="Transparent_circle_logo.png" alt="Committee Role 3">
+            </div>
+            <div class="polaroid-caption">
+                <h3>Treasurer</h3>
+                <p>Checks the empty purse</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Interactive Polaroid Deck Rotation Script -->
+<script>
+function cyclePolaroids() {
+    // Collect all polaroid cards inside our element container
+    const cards = document.querySelectorAll('.polaroid-card');
+    let activeIndex = -1;
+
+    // Locate which card is currently sitting on top
+    cards.forEach((card, index) => {
+        if (card.classList.contains('active')) {
+            activeIndex = index;
+        }
+    });
+
+    // Strip away all depth layout marker names
+    cards[activeIndex].classList.remove('active');
+    
+    // Calculate who gets to be the new top card
+    const nextActiveIndex = (activeIndex + 1) % cards.length;
+    const nextUpIndex = (activeIndex + 2) % cards.length;
+    const lastIndex = (activeIndex + 3) % cards.length;
+
+    // Refresh the class name arrangements
+    cards.forEach(card => {
+        card.classList.remove('active', 'next-up', 'last-in-deck');
+    });
+
+    // Assign the new positions to the cards
+    cards[nextActiveIndex].classList.add('active');
+    cards[nextUpIndex].classList.add('next-up');
+    
+    if (cards.length > 2) {
+        cards[lastIndex].classList.add('last-in-deck');
+    }
+}
+
+// AUTOMATIC TIMER: Triggers the click action automatically every 4.5 seconds
+let autoCarouselTimer = setInterval(cyclePolaroids, 4500);
+
+// Reset the automatic timer if a user manually clicks on a card so it doesn't skip too fast
+function manualCycle() {
+    clearInterval(autoCarouselTimer);
+    cyclePolaroids();
+    autoCarouselTimer = setInterval(cyclePolaroids, 4500);
+}
+
+// Attach the manual overwrite action to our polaroid frame stack element wrapper
+document.querySelector('.polaroid-stack').setAttribute('onclick', 'manualCycle()');
+
+// Initialize the initial background card positions on load
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.polaroid-card');
+    if(cards.length > 1) cards[1].classList.add('next-up');
+    if(cards.length > 2) cards[2].classList.add('last-in-deck');
+});
+</script>
+
 
 
 </body>
